@@ -6,6 +6,7 @@ import Header from './components/layout/Header'
 import About from './components/page/About'
 import AddContact from './components/contacts/AddContact'
 import { Provider } from './context'
+import Test from './components/test/Test'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -24,6 +25,7 @@ class App extends Component {
                 <Route exact path='/' component={Contacts} />
                 <Route exact path='/addcontacts' component={AddContact} />
                 <Route exact path='/about' component={About} />
+                <Route exact path='/test' component={Test} />
                 <Route component={Error404} />
               </Switch>
             

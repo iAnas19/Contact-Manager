@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
+import axios from 'axios'
 
 class Contact extends Component {
   state = {
     showContactInfo: false
   }
 
-  onDeleteClick = (id, dispatch) => {
-    dispatch({type: 'DELETE_CONTACT', payload: id});
+  onDeleteClick = async (id, dispatch) => {
+    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+    dispatch({  type: 'DELETE_CONTACT', payload: id })    
      
   }
 
@@ -21,10 +24,10 @@ class Contact extends Component {
         {value => {
           const {dispatch } = value
           return(
-            <div className='card card-body mb-3'>
+            <div className='card card-body mb-3' onClick={() => 
+              this.setState({showContactInfo: !this.state.showContactInfo})}>
             <h4>
-              {name} <i onClick={() => 
-              this.setState({showContactInfo: !this.state.showContactInfo})}
+              {name} <i 
               className='drop-down fas fa-sort-down' style={{fontSize:'24px'}}/>
     
               <i className='cross fas fa-times' style={{cursor:'pointer', float: 'right', color:'red'}}
