@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
 import axios from 'axios'
+import { transform } from '@babel/core';
 
 class Contact extends Component {
   state = {
@@ -9,10 +11,13 @@ class Contact extends Component {
   }
 
   onDeleteClick = async (id, dispatch) => {
-    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
-
-    dispatch({  type: 'DELETE_CONTACT', payload: id })    
-     
+    try{
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+      dispatch({ type: 'DELETE_CONTACT', payload: id }) 
+    
+    } catch(e) {
+      dispatch({ type: 'DELETE_CONTACT', payload: id }) 
+    }  
   }
 
   render() {
@@ -24,15 +29,25 @@ class Contact extends Component {
         {value => {
           const {dispatch } = value
           return(
-            <div className='card card-body mb-3' onClick={() => 
-              this.setState({showContactInfo: !this.state.showContactInfo})}>
+            <div className='card card-body mb-3' >
             <h4>
               {name} <i 
-              className='drop-down fas fa-sort-down' style={{fontSize:'24px'}}/>
+              className='drop-down fas fa-sort-down' style={{fontSize:'24px'}} onClick={() => 
+                this.setState({showContactInfo: !this.state.showContactInfo})}/>
     
               <i className='cross fas fa-times' style={{cursor:'pointer', float: 'right', color:'red'}}
               onClick={this.onDeleteClick.bind(this, id, dispatch) } 
               />
+
+              <Link to={`contact/edit/${id}`}>
+                <i className='fas fa-pencil-alt' style={{
+                  cursor:'pointer',
+                  float:'right',
+                  color:'green',
+                  marginRight:'1rem',
+                  transform:'scale(0.8)'
+                }}> </i>
+              </Link>
             </h4>
             
             {showContactInfo ? (        
