@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/contact-manager/static/css/main.82c63981.chunk.css",
+    "main.js": "/contact-manager/static/js/main.42a13dc1.chunk.js",
+    "main.js.map": "/contact-manager/static/js/main.42a13dc1.chunk.js.map",
+    "runtime-main.js": "/contact-manager/static/js/runtime-main.028caead.js",
+    "runtime-main.js.map": "/contact-manager/static/js/runtime-main.028caead.js.map",
+    "static/css/2.61b4cb56.chunk.css": "/contact-manager/static/css/2.61b4cb56.chunk.css",
+    "static/js/2.f502ea37.chunk.js": "/contact-manager/static/js/2.f502ea37.chunk.js",
+    "static/js/2.f502ea37.chunk.js.map": "/contact-manager/static/js/2.f502ea37.chunk.js.map",
+    "index.html": "/contact-manager/index.html",
+    "static/css/2.61b4cb56.chunk.css.map": "/contact-manager/static/css/2.61b4cb56.chunk.css.map",
+    "static/css/main.82c63981.chunk.css.map": "/contact-manager/static/css/main.82c63981.chunk.css.map",
+    "static/js/2.f502ea37.chunk.js.LICENSE.txt": "/contact-manager/static/js/2.f502ea37.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.028caead.js",
+    "static/css/2.61b4cb56.chunk.css",
+    "static/js/2.f502ea37.chunk.js",
+    "static/css/main.82c63981.chunk.css",
+    "static/js/main.42a13dc1.chunk.js"
+  ]
+}
